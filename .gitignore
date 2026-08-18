@@ -1,0 +1,11 @@
+# confidential — never push assessments or answer keys
+assessment/
+reference/old_assessment/
+
+# local-only
+.env
+.DS_Store
+.claude/
+reference/
+courseware/archive/
+*.zip
