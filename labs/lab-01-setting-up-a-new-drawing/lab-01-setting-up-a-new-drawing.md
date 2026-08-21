@@ -64,4 +64,4 @@ A correctly configured metric drawing sheet, saved as a reusable baseline for th
 ZOOM All shows the full 420×297 sheet, the crosshair snaps in 10 mm increments, and STATUS reports decimal units — your baseline metrics are in force.
 
 ---
-*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.0*
+*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.1*

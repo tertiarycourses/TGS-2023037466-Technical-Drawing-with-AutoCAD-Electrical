@@ -18,13 +18,16 @@ A correctly wired and wire-numbered circuit with terminals, matching the drawing
 ## Starter files (in this folder)
 
 - `10-2_Power_Plan.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
+- `autodesk-electrical-sample-project/` — AutoCAD Electrical single-wire/component sample project (wddemo.wdp) (provided in the controlled course-delivery package; intentionally omitted from the public GitHub repository)
+
+> **Compatibility safeguard:** Copy the complete package before opening it. These project files may contain legacy AutoCAD Electrical 2015 library paths. If prompted, allow the current Electrical toolset to update the copy, then remap missing NFPA/IEC or panel-library paths to the equivalent libraries installed with your current release. Never overwrite the supplied package.
 
 ## Step-by-step
 
-1. Continue on your Lab 3 sheet (keep 10-2_Power_Plan.dwg open as an analysis reference for wiring practice).
+1. Continue on your Lab 3 sheet. Open the Lab 4 sample-project copy and compare DEMO02/DEMO10 as AutoCAD Electrical-aware references; keep 10-2_Power_Plan.dwg open only as a conventional-plan comparison.
 
    ```
-   OPEN 10-2_Power_Plan.dwg
+   AEPROJECT → Open Project → wddemo.wdp
    ```
 
 2. Insert two vertical wires between two horizontal rungs — wires land on the wire layer automatically and tee-dots appear at junctions.
@@ -69,4 +72,4 @@ A correctly wired and wire-numbered circuit with terminals, matching the drawing
 Every wire carries a number in the drawing-property format, the fixed number survives a project-wide renumber, and the terminals join the wires cleanly — the sheet passes an accuracy review.
 
 ---
-*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.0*
+*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.1*

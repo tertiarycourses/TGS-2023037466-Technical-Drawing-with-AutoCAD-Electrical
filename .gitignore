@@ -9,3 +9,7 @@ reference/old_assessment/
 reference/
 courseware/archive/
 *.zip
+
+# Licensed/reference AutoCAD Electrical sample projects are delivered through
+# the controlled course Drive package, not the public GitHub repository.
+labs/**/autodesk-electrical-sample-project/

@@ -19,40 +19,49 @@ A panel layout drawing with footprints placed from the schematic list, a namepla
 
 - `6-1_Working_with_Blocks.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
 - `6-2_Working_with_Attributes.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
+- `autodesk-electrical-sample-project/` — AutoCAD Electrical schematic-and-panel sample project (wddemo.wdp) (provided in the controlled course-delivery package; intentionally omitted from the public GitHub repository)
+
+> **Compatibility safeguard:** Copy the complete package before opening it. These project files may contain legacy AutoCAD Electrical 2015 library paths. If prompted, allow the current Electrical toolset to update the copy, then remap missing NFPA/IEC or panel-library paths to the equivalent libraries installed with your current release. Never overwrite the supplied package.
 
 ## Step-by-step
 
-1. Create a new panel drawing in your project and switch to the Panel tab of the ribbon.
+1. Open a working copy of the supplied `wddemo.wdp`; compare schematic DEMO01–DEMO07 with panel DEMO08–DEMO09 and confirm the project links are intact.
+
+   ```
+   AEPROJECT → Open Project → wddemo.wdp
+   ```
+
+2. Create a new panel drawing in your TRAINING project and switch to the Panel tab of the ribbon.
 
    ```
    New Drawing → Panel tab
    ```
 
-2. Insert footprints from the schematic list — AutoCAD Electrical matches each component's catalog value to a footprint.
+3. Insert footprints from the schematic list — AutoCAD Electrical matches each component's catalog value to a footprint.
 
    ```
    AEFOOTPRINT  (Schematic List)
    ```
 
-3. Place the footprints inside the panel outline; values (tag, location, description) copy over from the schematic.
+4. Place the footprints inside the panel outline; values (tag, location, description) copy over from the schematic.
 
    ```
    Pick insertion points
    ```
 
-4. Insert a nameplate from the Panel icon menu and associate it with a footprint.
+5. Insert a nameplate from the Panel icon menu and associate it with a footprint.
 
    ```
    Panel Icon Menu → Nameplate
    ```
 
-5. Assign item numbers project-wide — components with the same catalog value receive the same item number.
+6. Assign item numbers project-wide — components with the same catalog value receive the same item number.
 
    ```
    AEPANELITEM
    ```
 
-6. Add item balloons to the footprints and study the supplied blocks/attributes drawings to see how footprint blocks carry data.
+7. Add item balloons to the footprints and study the supplied blocks/attributes drawings to see how footprint blocks carry data.
 
    ```
    AEBALLOON
@@ -64,4 +73,4 @@ A panel layout drawing with footprints placed from the schematic list, a namepla
 Each footprint shows the same tag as its schematic parent, the nameplate carries the footprint's description, and balloons display consistent item numbers — the panel documents the design faithfully.
 
 ---
-*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.0*
+*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.1*

@@ -19,40 +19,49 @@ A cross-referenced two-sheet circuit you can navigate with Surfer, plus a Mark/V
 
 - `10-1_Working_with_References.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
 - `10-2_HVAC_Plan.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
+- `autodesk-electrical-sample-project/` — AutoCAD Electrical multi-sheet sample project for cross-reference review (wddemo.wdp) (provided in the controlled course-delivery package; intentionally omitted from the public GitHub repository)
+
+> **Compatibility safeguard:** Copy the complete package before opening it. These project files may contain legacy AutoCAD Electrical 2015 library paths. If prompted, allow the current Electrical toolset to update the copy, then remap missing NFPA/IEC or panel-library paths to the equivalent libraries installed with your current release. Never overwrite the supplied package.
 
 ## Step-by-step
 
-1. Insert a relay coil (parent) on sheet 1 and a NO contact (child) on sheet 2 of your project; assign the child to the parent in the Insert/Edit Child dialog.
+1. Open a working copy of the supplied `wddemo.wdp`, then use the project descriptions and existing links to identify a parent/child relationship spanning two sample sheets.
+
+   ```
+   AEPROJECT → Open Project → wddemo.wdp
+   ```
+
+2. In your TRAINING project, insert a relay coil (parent) on sheet 1 and a NO contact (child) on sheet 2; assign the child to the parent in the Insert/Edit Child dialog.
 
    ```
    AECOMPONENT → coil / contact
    ```
 
-2. Update cross-references and read the parent's contact grid — it reports where every child lives.
+3. Update cross-references and read the parent's contact grid — it reports where every child lives.
 
    ```
    AEXREF
    ```
 
-3. Break a wire network across the two sheets with a Source arrow (assign a code) and a matching Destination arrow.
+4. Break a wire network across the two sheets with a Source arrow (assign a code) and a matching Destination arrow.
 
    ```
    AESOURCE  ·  AEDEST
    ```
 
-4. Right-click the coil and Surf: jump between the parent, children and signal arrows from the Surf list.
+5. Right-click the coil and Surf: jump between the parent, children and signal arrows from the Surf list.
 
    ```
    AESURF
    ```
 
-5. Mark the project (Mark/Verify), move one component, then run Verify to get the change report.
+6. Mark the project (Mark/Verify), move one component, then run Verify to get the change report.
 
    ```
    AEMARKVERIFY
    ```
 
-6. Open the supplied reference drawings and identify which sheets are reference-only in Project Manager.
+7. Open the supplied reference drawings and identify which sheets are reference-only in Project Manager.
 
    ```
    OPEN 10-1_Working_with_References.dwg
@@ -64,4 +73,4 @@ A cross-referenced two-sheet circuit you can navigate with Surfer, plus a Mark/V
 Surfer jumps coil → contact → signal arrow across sheets without manual searching, and the Verify report lists exactly the one component you moved — the set is auditable for accuracy.
 
 ---
-*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.0*
+*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.1*

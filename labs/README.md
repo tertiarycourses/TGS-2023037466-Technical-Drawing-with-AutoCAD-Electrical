@@ -1,13 +1,13 @@
 # Technical Drawing with AutoCAD Electrical — Hands-On Labs
 
-**WSQ Course Code:** TGS-2023037466  ·  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  ·  **Version v6.0**
+**WSQ Course Code:** TGS-2023037466  ·  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  ·  **Version v6.1**
 
 Each lab lives in its own folder with the instructions as Markdown (`.md`) and PDF, plus the starter AutoCAD DWG file(s) used in the lab. Complete the labs in order — they build on each other within each topic.
 
 ## Topic 01 — Introduction to Technical Drawing Using AutoCAD Electrical
 
 - [Lab 1: Set Up a New AutoCAD Electrical Drawing](lab-01-setting-up-a-new-drawing/lab-01-setting-up-a-new-drawing.md) — A correctly configured metric drawing sheet, saved as a reusable baseline for the rest of the course.
-- [Lab 2: Create a Project with Project Manager](lab-02-create-a-project-with-project-manager/lab-02-create-a-project-with-project-manager.md) — A working .wdp project containing the supplied power and lighting plan drawings plus a title block, in the correct sheet order.
+- [Lab 2: Create a Project with Project Manager](lab-02-create-a-project-with-project-manager/lab-02-create-a-project-with-project-manager.md) — A verified working copy of an AutoCAD Electrical .wdp project, with its schematic and panel sheets in the correct order and current library paths resolved.
 
 ## Topic 02 — Analysing Technical Drawings
 
@@ -28,3 +28,5 @@ The starter drawings are reused with thanks from these open exercise-file reposi
 - [DCS-training/AutocadSelfLearn](https://github.com/DCS-training/AutocadSelfLearn)
 - [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques)
 - [PacktPublishing/Mastering-AutoCAD](https://github.com/PacktPublishing/Mastering-AutoCAD)
+
+Selected labs also include an instructor-supplied AutoCAD Electrical sample project in the controlled Google Drive course-delivery package. Those project files are used on copies for realistic project, schematic, panel, report and publish workflows, and are intentionally excluded from the public GitHub repository.

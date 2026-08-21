@@ -19,40 +19,49 @@ A BOM table placed on the drawing plus a saved .SET format file and a CSV export
 
 - `5-1_Working_with_Tables.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
 - `5-3_Using_Table_Links.dwg`  (source: [PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques](https://github.com/PacktPublishing/AutoCAD-2025-Best-Practices-Tips-and-Techniques))
+- `autodesk-electrical-sample-project/` — AutoCAD Electrical reporting project (PROJECT006.wdp with BOM, schematic and panel drawings) (provided in the controlled course-delivery package; intentionally omitted from the public GitHub repository)
+
+> **Compatibility safeguard:** Copy the complete package before opening it. These project files may contain legacy AutoCAD Electrical 2015 library paths. If prompted, allow the current Electrical toolset to update the copy, then remap missing NFPA/IEC or panel-library paths to the equivalent libraries installed with your current release. Never overwrite the supplied package.
 
 ## Step-by-step
 
-1. Run the Reports tool on the Reports tab and choose Bill of Material, processing the whole project.
+1. Copy the supplied reporting project, open `PROJECT006.wdp`, and confirm its BOM, schematic and panel drawings resolve before running reports.
 
    ```
-   AEAUDIT →  Reports → BOM
+   AEPROJECT → Open Project → PROJECT006.wdp
    ```
 
-2. Adjust the report: include/exclude fields, reorder columns and rename field labels to your house standard.
+2. Run the Reports tool on the Reports tab and choose Bill of Material, processing the whole project.
+
+   ```
+   Reports → Schematic Reports → Bill of Material
+   ```
+
+3. Adjust the report: include/exclude fields, reorder columns and rename field labels to your house standard.
 
    ```
    Change Report Fields
    ```
 
-3. Save the settings as a format file so the same report can be re-run in one click next time.
+4. Save the settings as a format file so the same report can be re-run in one click next time.
 
    ```
    Save Format File (.SET)
    ```
 
-4. Insert the report on the drawing as a table (Put on Drawing) using a table style.
+5. Insert the report on the drawing as a table (Put on Drawing) using a table style.
 
    ```
    Put on Drawing · TABLESTYLE
    ```
 
-5. Export the same report to a file for procurement (CSV/XLS).
+6. Export the same report to a file for procurement (CSV/XLS).
 
    ```
    Save to File → CSV
    ```
 
-6. Run a Wire From/To report and compare it against the wiring you created in Lab 4; open the supplied table drawings to see linked tables.
+7. Run a Wire From/To report and compare it against the wiring you created in Lab 4; open the supplied table drawings to see linked tables.
 
    ```
    Reports → Wire From/To
@@ -64,4 +73,4 @@ A BOM table placed on the drawing plus a saved .SET format file and a CSV export
 The BOM table on the drawing matches the CSV export line for line, and re-running the report through your .SET format file reproduces the same layout — the part list is standard-compliant and repeatable.
 
 ---
-*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.0*
+*© 2026 Tertiary Infotech Academy Pte Ltd (UEN: 201200696W) · Technical Drawing with AutoCAD Electrical · Version v6.1*

@@ -1,6 +1,6 @@
 # Technical Drawing with AutoCAD Electrical — Learner Guide
 
-**WSQ Course Code:** TGS-2023037466  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v6.0 · 18 August 2026**
+**WSQ Course Code:** TGS-2023037466  |  **Conducted by:** Tertiary Infotech Academy Pte Ltd (UEN 201200696W)  |  **Version v6.1 · 21 August 2026**
 
 ## Contents
 
@@ -27,7 +27,7 @@
 
 This Learner Guide accompanies the WSQ course Technical Drawing with AutoCAD Electrical (TGS-2023037466), conducted by Tertiary Infotech Academy Pte Ltd. It provides step-by-step instructions for the 8 hands-on labs, organised by the three Learning Units of the accredited course. The course is mapped to the Skills Framework TSC Technical Drawing (DSN-TDR-4005-1.1), and the labs collectively cover every Ability statement (A1–A6) while the teaching topics cover every Knowledge statement (K1–K6).
 
-Use this guide alongside the course slides and the lab folders in labs/ of the course repository. Each lab folder contains this guide's instructions as a PDF and Markdown file plus the starter DWG drawing files used in the lab.
+Use this guide alongside the course slides and the lab folders in labs/ of the course repository. Each lab folder contains this guide's instructions as a PDF and Markdown file plus the starter DWG drawing files used in the lab. Selected labs also contain a complete AutoCAD Electrical sample project in the controlled course-delivery package; these project files are intentionally not published in the public GitHub repository.
 
 
 ## Course Learning Outcomes
@@ -82,6 +82,8 @@ Ribbon → confirm Schematic · Panel · Reports tabs
 - Command names in CAPITALS (e.g. AEPROJECT) are typed at the command line; ribbon paths are given as Tab → Panel → Tool.
 - Function keys: F7 grid · F8 ortho · F9 snap · F3 object snap.
 - Each lab folder contains the starter DWG files; save your work into the same folder.
+- When a lab includes `autodesk-electrical-sample-project`, copy the complete folder before opening its .wdp file. Never edit the supplied package in place.
+- Some supplied project files contain legacy AutoCAD Electrical 2015 library paths. Allow the current toolset to update only your copy, then remap missing NFPA/IEC and panel-library paths to the equivalent libraries installed with your release.
 - Labs build on each other within a topic — complete them in order.
 
 
@@ -168,11 +170,11 @@ ZOOM All shows the full 420×297 sheet, the crosshair snaps in 10 mm increments,
 
 Objective: A1, A2 — standardise production with a project; solve multi-drawing organisation problems.
 
-Goal: AutoCAD Electrical is project-based: a .wdp project groups interrelated drawings so project-wide functions can retag and renumber. Create a project, add the supplied electrical plan drawings, and reorder them.
+Goal: AutoCAD Electrical is project-based: a .wdp project groups interrelated schematic and panel drawings so project-wide functions can retag, renumber, cross-reference and report. Inspect the supplied AutoCAD Electrical sample project, then create a safe working copy for the connected labs.
 
 **What you'll build**
 
-A working .wdp project containing the supplied power and lighting plan drawings plus a title block, in the correct sheet order.   (Tools: Project Manager · .wdp project file · Power_Plan / Lighting_Plan DWGs.)
+A verified working copy of an AutoCAD Electrical .wdp project, with its schematic and panel sheets in the correct order and current library paths resolved.   (Tools: Project Manager · .wdp/.aepx project files · linked schematic and panel DWGs.)
 
 ![Lab 2 workflow — Create a Project with Project Manager](labs/lab-02-create-a-project-with-project-manager/workflow.png)
 
@@ -182,48 +184,52 @@ A working .wdp project containing the supplied power and lighting plan drawings 
 - 10-2_Lighting_Plan.dwg
 - Title_Block.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical sample project (wddemo.wdp with linked DEMO drawings) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Open Project Manager from the Project tab (it is a palette — dock it on the left).
+1. Copy the entire `autodesk-electrical-sample-project` folder to a new working folder named `TRAINING_PROJECT`; keep the supplied folder unchanged so it can be restored.
 
    ```
-   AEPROJECT
+   File Explorer → Copy folder → TRAINING_PROJECT
    ```
 
-2. Create a new project named TRAINING — the .wdp file stores the project description and settings.
+2. Open Project Manager, select Open Project, and open `TRAINING_PROJECT\wddemo.wdp`. If prompted, allow AutoCAD Electrical to update the project/drawing format.
 
    ```
-   Project Manager → New Project → TRAINING
+   AEPROJECT → Open Project → wddemo.wdp
    ```
 
-3. Review the Project Properties: library standard (IEC/IEEE/NFPA), component tag format and cross-reference style.
+3. Review Project Properties: schematic library standard, component tags, wire-number format and cross-reference style. If a legacy `Acade 2015` library path is reported, map it to the equivalent library installed with the current release.
 
    ```
-   Right-click project → Properties
+   Right-click project → Properties → Project Settings
    ```
 
-4. Add the supplied drawings 10-2_Power_Plan.dwg and 10-2_Lighting_Plan.dwg to the project.
+4. Expand the project and classify DEMO01–DEMO07 as schematic sheets and DEMO08–DEMO09 as panel sheets; confirm every listed drawing opens without a missing-file warning.
 
    ```
-   Right-click project → Add Drawings
+   Project Manager → expand project → open each drawing
    ```
 
-5. Drag and drop the drawings inside Project Manager so the power plan is sheet 1, and add Title_Block.dwg as reference-only.
+5. Create a new project named TRAINING in the working folder and copy settings from `wddemo.wdp`; add the supplied power and lighting plan drawings for comparison.
 
    ```
-   Drag to reorder · Properties → Reference Only
+   New Project → TRAINING.wdp → Copy Settings from Project
    ```
 
-6. Make TRAINING the active project and open a drawing from the project list by double-clicking it.
+6. Reorder the drawings, set `Title_Block.dwg` as reference-only, activate TRAINING, and save a project copy before continuing to Lab 3.
 
    ```
-   Right-click → Activate
+   Drag to reorder · Properties → Reference Only · Activate
    ```
 
 
 **Test it**
 
-Project Manager shows TRAINING in bold (active) with the drawings in your chosen order, and the .wdp file exists in the project folder — project-wide functions now see every sheet.
+Project Manager shows TRAINING in bold, every sample-project drawing resolves from the working folder, no unresolved legacy library path remains, and the original supplied package is unchanged.
 
 > **Note:** This lab's instructions and starter DWGs are in labs/lab-02-create-a-project-with-project-manager/.
 
@@ -260,39 +266,49 @@ A schematic sheet containing a Circuit Builder motor circuit plus a saved, reusa
 
 - 2-0_Blank.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical multiwire/circuit sample project (wddemo.wdp) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Open the supplied blank sheet 2-0_Blank.dwg inside your TRAINING project and insert a ladder to carry the circuit.
+1. Copy the supplied sample-project folder to your Lab 3 working area, open `wddemo.wdp`, and use DEMO02 plus DEMO10/DEMO11 as completed circuit references. Work only in your copy.
+
+   ```
+   AEPROJECT → Open Project → wddemo.wdp
+   ```
+
+2. Add 2-0_Blank.dwg to your TRAINING project and insert a ladder to carry the circuit.
 
    ```
    AELADDER
    ```
 
-2. Launch Circuit Builder from the Schematic tab and pick a 3-phase motor circuit from the tree.
+3. Launch Circuit Builder from the Schematic tab and pick a 3-phase motor circuit from the tree.
 
    ```
    AECIRCBUILDER
    ```
 
-3. Step through the Circuit Configuration dialog — select the disconnect, protection and control options; the circuit is built dynamically from your selections.
+4. Step through the Circuit Configuration dialog — select the disconnect, protection and control options; the circuit is built dynamically from your selections.
 
    ```
    Circuit Builder → Configure → Insert
    ```
 
-4. Insert a push button and a selector switch from the Icon Menu to complete the control rung.
+5. Insert a push button and a selector switch from the Icon Menu to complete the control rung.
 
    ```
    AECOMPONENT  (Icon Menu)
    ```
 
-5. Select the finished circuit and save it with Save Circuit to Icon Menu for reuse.
+6. Select the finished circuit and save it with Save Circuit to Icon Menu for reuse.
 
    ```
    Schematic → Circuit Clipboard → Save Circuit
    ```
 
-6. Insert the saved circuit onto a clear area of the sheet and watch tags update to stay unique.
+7. Insert the saved circuit onto a clear area of the sheet and watch tags update to stay unique.
 
    ```
    Icon Menu → Saved Circuits
@@ -324,12 +340,16 @@ A correctly wired and wire-numbered circuit with terminals, matching the drawing
 
 - 10-2_Power_Plan.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical single-wire/component sample project (wddemo.wdp) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Continue on your Lab 3 sheet (keep 10-2_Power_Plan.dwg open as an analysis reference for wiring practice).
+1. Continue on your Lab 3 sheet. Open the Lab 4 sample-project copy and compare DEMO02/DEMO10 as AutoCAD Electrical-aware references; keep 10-2_Power_Plan.dwg open only as a conventional-plan comparison.
 
    ```
-   OPEN 10-2_Power_Plan.dwg
+   AEPROJECT → Open Project → wddemo.wdp
    ```
 
 2. Insert two vertical wires between two horizontal rungs — wires land on the wire layer automatically and tee-dots appear at junctions.
@@ -395,39 +415,49 @@ A cross-referenced two-sheet circuit you can navigate with Surfer, plus a Mark/V
 - 10-1_Working_with_References.dwg
 - 10-2_HVAC_Plan.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical multi-sheet sample project for cross-reference review (wddemo.wdp) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Insert a relay coil (parent) on sheet 1 and a NO contact (child) on sheet 2 of your project; assign the child to the parent in the Insert/Edit Child dialog.
+1. Open a working copy of the supplied `wddemo.wdp`, then use the project descriptions and existing links to identify a parent/child relationship spanning two sample sheets.
+
+   ```
+   AEPROJECT → Open Project → wddemo.wdp
+   ```
+
+2. In your TRAINING project, insert a relay coil (parent) on sheet 1 and a NO contact (child) on sheet 2; assign the child to the parent in the Insert/Edit Child dialog.
 
    ```
    AECOMPONENT → coil / contact
    ```
 
-2. Update cross-references and read the parent's contact grid — it reports where every child lives.
+3. Update cross-references and read the parent's contact grid — it reports where every child lives.
 
    ```
    AEXREF
    ```
 
-3. Break a wire network across the two sheets with a Source arrow (assign a code) and a matching Destination arrow.
+4. Break a wire network across the two sheets with a Source arrow (assign a code) and a matching Destination arrow.
 
    ```
    AESOURCE  ·  AEDEST
    ```
 
-4. Right-click the coil and Surf: jump between the parent, children and signal arrows from the Surf list.
+5. Right-click the coil and Surf: jump between the parent, children and signal arrows from the Surf list.
 
    ```
    AESURF
    ```
 
-5. Mark the project (Mark/Verify), move one component, then run Verify to get the change report.
+6. Mark the project (Mark/Verify), move one component, then run Verify to get the change report.
 
    ```
    AEMARKVERIFY
    ```
 
-6. Open the supplied reference drawings and identify which sheets are reference-only in Project Manager.
+7. Open the supplied reference drawings and identify which sheets are reference-only in Project Manager.
 
    ```
    OPEN 10-1_Working_with_References.dwg
@@ -474,39 +504,49 @@ A panel layout drawing with footprints placed from the schematic list, a namepla
 - 6-1_Working_with_Blocks.dwg
 - 6-2_Working_with_Attributes.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical schematic-and-panel sample project (wddemo.wdp) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Create a new panel drawing in your project and switch to the Panel tab of the ribbon.
+1. Open a working copy of the supplied `wddemo.wdp`; compare schematic DEMO01–DEMO07 with panel DEMO08–DEMO09 and confirm the project links are intact.
+
+   ```
+   AEPROJECT → Open Project → wddemo.wdp
+   ```
+
+2. Create a new panel drawing in your TRAINING project and switch to the Panel tab of the ribbon.
 
    ```
    New Drawing → Panel tab
    ```
 
-2. Insert footprints from the schematic list — AutoCAD Electrical matches each component's catalog value to a footprint.
+3. Insert footprints from the schematic list — AutoCAD Electrical matches each component's catalog value to a footprint.
 
    ```
    AEFOOTPRINT  (Schematic List)
    ```
 
-3. Place the footprints inside the panel outline; values (tag, location, description) copy over from the schematic.
+4. Place the footprints inside the panel outline; values (tag, location, description) copy over from the schematic.
 
    ```
    Pick insertion points
    ```
 
-4. Insert a nameplate from the Panel icon menu and associate it with a footprint.
+5. Insert a nameplate from the Panel icon menu and associate it with a footprint.
 
    ```
    Panel Icon Menu → Nameplate
    ```
 
-5. Assign item numbers project-wide — components with the same catalog value receive the same item number.
+6. Assign item numbers project-wide — components with the same catalog value receive the same item number.
 
    ```
    AEPANELITEM
    ```
 
-6. Add item balloons to the footprints and study the supplied blocks/attributes drawings to see how footprint blocks carry data.
+7. Add item balloons to the footprints and study the supplied blocks/attributes drawings to see how footprint blocks carry data.
 
    ```
    AEBALLOON
@@ -539,39 +579,49 @@ A BOM table placed on the drawing plus a saved .SET format file and a CSV export
 - 5-1_Working_with_Tables.dwg
 - 5-3_Using_Table_Links.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical reporting project (PROJECT006.wdp with BOM, schematic and panel drawings) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Run the Reports tool on the Reports tab and choose Bill of Material, processing the whole project.
+1. Copy the supplied reporting project, open `PROJECT006.wdp`, and confirm its BOM, schematic and panel drawings resolve before running reports.
 
    ```
-   AEAUDIT →  Reports → BOM
+   AEPROJECT → Open Project → PROJECT006.wdp
    ```
 
-2. Adjust the report: include/exclude fields, reorder columns and rename field labels to your house standard.
+2. Run the Reports tool on the Reports tab and choose Bill of Material, processing the whole project.
+
+   ```
+   Reports → Schematic Reports → Bill of Material
+   ```
+
+3. Adjust the report: include/exclude fields, reorder columns and rename field labels to your house standard.
 
    ```
    Change Report Fields
    ```
 
-3. Save the settings as a format file so the same report can be re-run in one click next time.
+4. Save the settings as a format file so the same report can be re-run in one click next time.
 
    ```
    Save Format File (.SET)
    ```
 
-4. Insert the report on the drawing as a table (Put on Drawing) using a table style.
+5. Insert the report on the drawing as a table (Put on Drawing) using a table style.
 
    ```
    Put on Drawing · TABLESTYLE
    ```
 
-5. Export the same report to a file for procurement (CSV/XLS).
+6. Export the same report to a file for procurement (CSV/XLS).
 
    ```
    Save to File → CSV
    ```
 
-6. Run a Wire From/To report and compare it against the wiring you created in Lab 4; open the supplied table drawings to see linked tables.
+7. Run a Wire From/To report and compare it against the wiring you created in Lab 4; open the supplied table drawings to see linked tables.
 
    ```
    Reports → Wire From/To
@@ -604,39 +654,49 @@ An A3 PDF plot of one sheet and a hyperlinked multi-sheet PDF of the whole proje
 - 1-12_Using_Layout_Tabs.dwg
 - New_Office_Layout.dwg
 
+- autodesk-electrical-sample-project/ — AutoCAD Electrical multi-sheet sample project with title-block data (wddemo.wdp) (controlled course-delivery package; omitted from public GitHub)
+
+> **Note:** Compatibility safeguard: work on a complete copy, allow the current Electrical toolset to update that copy if prompted, remap any missing legacy AutoCAD Electrical 2015 library paths, and keep the supplied package unchanged.
+
 **Step-by-step**
 
-1. Open the External References palette and attach a DWG as an xref to see how reference files are managed.
+1. Open a working copy of the supplied `wddemo.wdp`, confirm all nine sheets and title-block data resolve, and use that project for the multi-sheet publish check.
+
+   ```
+   AEPROJECT → Open Project → wddemo.wdp
+   ```
+
+2. Open the External References palette and attach a DWG as an xref to see how reference files are managed.
 
    ```
    XREF  →  Attach DWG
    ```
 
-2. Open 1-12_Using_Layout_Tabs.dwg and review its layout tabs — plotting always happens from a layout with a page setup.
+3. Open 1-12_Using_Layout_Tabs.dwg and review its layout tabs — plotting always happens from a layout with a page setup.
 
    ```
    OPEN → Layout tabs
    ```
 
-3. Plot the active drawing to PDF at A3 size from the Plot dialog (printer: AutoCAD PDF, paper: ISO A3).
+4. Plot the active drawing to PDF at A3 size from the Plot dialog (printer: AutoCAD PDF, paper: ISO A3).
 
    ```
    PLOT → AutoCAD PDF → ISO A3
    ```
 
-4. From Project Manager, choose Publish/Plot → Plot Project and select the sheets to output.
+5. From Project Manager, choose Publish/Plot → Plot Project and select the sheets to output.
 
    ```
    Project Manager → Plot Project
    ```
 
-5. Publish the project to a single multi-sheet PDF with Include Hyperlinks checked — cross-references become clickable links.
+6. Publish the project to a single multi-sheet PDF with Include Hyperlinks checked — cross-references become clickable links.
 
    ```
    AEPUBLISH → Multi-sheet · Hyperlinks
    ```
 
-6. Open the PDF and click a parent's cross-reference to jump to its child; confirm the title block shows the plot date.
+7. Open the PDF and click a parent's cross-reference to jump to its child; confirm the title block shows the plot date.
 
    ```
    Verify in PDF viewer
@@ -657,7 +717,6 @@ The A3 PDF matches the layout exactly, and in the multi-sheet PDF clicking a cro
 - The Written Assessment (SAQ) tests the Knowledge statements K1–K6 — review the Key Concepts of each topic and the symbol/standards material.
 - The Practical Performance (PP) tests the Ability statements A1–A6 — redo each lab until you can complete it without referring to the steps.
 - Both assessments are open book: bring the slides and this Learner Guide.
-- Sharpen your readiness with the Tertiary Infotech practice exams: https://exams.tertiaryinfotech.com/
 - Complete the TRAQOM survey and the Assessment digital attendance before sitting the assessment.
 
 
